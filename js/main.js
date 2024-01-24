@@ -1,12 +1,12 @@
-window.onload = function(){
+window.onload = function () {
   let navList = document.querySelector(".nav > ul");
 
-  navList.addEventListener("mouseover", function(){
+  navList.addEventListener("mouseover", function () {
       navList.querySelectorAll(".submenu").forEach(sub => {
           sub.style.height = "300px";
       });
   });
-  navList.addEventListener("mouseout", function(){
+  navList.addEventListener("mouseout", function () {
       navList.querySelectorAll(".submenu").forEach(sub => {
           sub.style.height = "0px";
       });
@@ -19,21 +19,21 @@ window.onload = function(){
 
 
 var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 1,
-  spaceBetween: 30,
-  loop: true,
-  autoplay: {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
         delay: 4000,
         disableOnInteraction: false,
-      },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 });
 // //slider
 
@@ -78,12 +78,12 @@ function toggleMenu(menu, shouldOpen) {
   menu.isOpen = typeof shouldOpen === 'boolean' ? shouldOpen : !menu.isOpen;
   menu.menu.style.visibility = menu.isOpen ? "visible" : "hidden";
   menu.menu.style.maxHeight = menu.isOpen ? menu.menu.scrollHeight + "px" : "0";
- 
+
   var downArrow = menu.container.querySelector('img[alt="제품선택아래방향포인트이미지"]');
   var upArrow = menu.container.querySelector('img[alt="제품선택윗방향포인트이미지"]');
   if (downArrow && upArrow) {
-    downArrow.style.display = menu.isOpen ? 'none' : 'block';
-    upArrow.style.display = menu.isOpen ? 'block' : 'none';
+      downArrow.style.display = menu.isOpen ? 'none' : 'block';
+      upArrow.style.display = menu.isOpen ? 'block' : 'none';
   }
 }
 
@@ -95,7 +95,7 @@ function handleMenuItemClick(menu, event) {
   menu.selectionText.textContent = event.target.textContent;
   toggleMenu(menu, false);
   if (menu.container.nextElementSibling) {
-    enableMenu(menu.container.nextElementSibling);
+      enableMenu(menu.container.nextElementSibling);
   }
 }
 
@@ -111,55 +111,56 @@ function disableMenu(menu) {
 // 메뉴별 이벤트 리스너 설정
 menus.forEach((menu, i, arr) => {
   menu.container.addEventListener("click", function (event) {
-    event.stopPropagation();
-    // 현재 메뉴를 토글
-    toggleMenu(menu);
-    // 다른 모든 메뉴들을 닫음
-    arr.forEach((otherMenu, j) => {
-      if (i !== j && otherMenu.isOpen) {
-        toggleMenu(otherMenu, false);
-      }
-    });
+      event.stopPropagation();
+      // 현재 메뉴를 토글
+      toggleMenu(menu);
+      // 다른 모든 메뉴들을 닫음
+      arr.forEach((otherMenu, j) => {
+          if (i !== j && otherMenu.isOpen) {
+              toggleMenu(otherMenu, false);
+          }
+      });
   });
 
   var menuItems = menu.menu.querySelectorAll("li");
   menuItems.forEach(function (item) {
-    item.addEventListener("click", function (event) {
-      handleMenuItemClick(menu, event);
-      // 선택한 메뉴 항목에 따라 다음 메뉴 활성화
-      if (i < arr.length - 1) {
-        let nextMenu = arr[i + 1];
-        enableMenu(nextMenu.container);
-        // 다음 메뉴의 기본 텍스트로 설정
-        nextMenu.selectionText.textContent = nextMenu.defaultText;
-        // 다음 메뉴 뒤의 모든 메뉴를 닫고 비활성화
-        arr.slice(i + 2).forEach(subsequentMenu => {
-          disableMenu(subsequentMenu.container);
-          toggleMenu(subsequentMenu, true);
-        });
-      }
-    });
+      item.addEventListener("click", function (event) {
+          handleMenuItemClick(menu, event);
+          // 선택한 메뉴 항목에 따라 다음 메뉴 활성화
+          if (i < arr.length - 1) {
+              let nextMenu = arr[i + 1];
+              enableMenu(nextMenu.container);
+              // 다음 메뉴의 기본 텍스트로 설정
+              nextMenu.selectionText.textContent = nextMenu.defaultText;
+              // 다음 메뉴 뒤의 모든 메뉴를 닫고 비활성화
+              arr.slice(i + 2).forEach(subsequentMenu => {
+                  disableMenu(subsequentMenu.container);
+                  toggleMenu(subsequentMenu, true);
+              });
+          }
+      });
   });
 });
 
 // 페이지 클릭 이벤트 리스너 설정
 document.addEventListener("click", function (event) {
   menus.forEach((menu, i, arr) => {
-    // 클릭된 요소가 현재 메뉴 컨테이너나 메뉴 내부가 아닌 경우에만 처리
-    if (!menu.container.contains(event.target) && !menu.menu.contains(event.target)) {
-      // 메뉴를 닫음
-      toggleMenu(menu, false);
-      // 기본 텍스트로 되돌림
-      menu.selectionText.textContent = menu.defaultText;
-      // 다음 메뉴들을 비활성화함
-      arr.slice(i + 1).forEach(nextMenu => {
-        disableMenu(nextMenu.container);
-        nextMenu.selectionText.textContent = nextMenu.defaultText;
-      });
-    }
+      // 클릭된 요소가 현재 메뉴 컨테이너나 메뉴 내부가 아닌 경우에만 처리
+      if (!menu.container.contains(event.target) && !menu.menu.contains(event.target)) {
+          // 메뉴를 닫음
+          toggleMenu(menu, false);
+          // 기본 텍스트로 되돌림
+          menu.selectionText.textContent = menu.defaultText;
+          // 다음 메뉴들을 비활성화함
+          arr.slice(i + 1).forEach(nextMenu => {
+              disableMenu(nextMenu.container);
+              nextMenu.selectionText.textContent = nextMenu.defaultText;
+          });
+      }
   });
 });
 // //productMenu
+
 
 
 
@@ -171,11 +172,11 @@ function updateSubmenu(selectedItem, submenu, mapping) {
   // 선택한 항목에 매핑된 하위 메뉴 항목을 표시.
   const relatedItems = mapping[selectedItem]?.brands || mapping[selectedItem]?.models || mapping[selectedItem]?.details || [];
   relatedItems.forEach(relatedItemKey => {
-    // 'data-key' 속성을 가진 li 요소를 찾아 표시
-    const li = submenu.querySelector(`li[data-key="${relatedItemKey}"]`);
-    if (li) {
-      li.style.display = 'block'; // 해당하는 항목을 표시
-    }
+      // 'data-key' 속성을 가진 li 요소를 찾아 표시
+      const li = submenu.querySelector(`li[data-key="${relatedItemKey}"]`);
+      if (li) {
+          li.style.display = 'block'; // 해당하는 항목을 표시
+      }
   });
 }
 
@@ -228,17 +229,17 @@ const modelMapping = {
 
 // 검색 버튼 클릭 시 실행되는 함수
 function performSearchClick() {
-  // '모델 선택' 영역에서 선택된 모델의 텍스트를 가져옵니다.
+  // '모델 선택' 영역에서 선택된 모델의 텍스트를 가져옴.
   const selectedModel = document.getElementById("selected_product4").textContent;
 
   // 선택된 모델이 '모델 선택'이 아니고, 'D-'로 시작하는 경우에만 URL 생성 및 이동
   if (selectedModel && selectedModel.startsWith('D-')) {
-    // URL 생성
-    const searchURL = `/details/${selectedModel}`;
-    
-    // 생성된 URL로 이동
-    console.log(`이동할 URL: ${searchURL}`);
-    window.location.href = searchURL;
+      // URL 생성
+      const searchURL = `/details/${selectedModel}`;
+      
+      // 생성된 URL로 이동
+      console.log(`이동할 URL: ${searchURL}`);
+      window.location.href = searchURL;
   }
 }
 
@@ -258,7 +259,7 @@ function createSearchURL(product, brand, model) {
 
   // 검색 버튼을 클릭한 경우에만 이동하도록 수정
   if (product || brand || model) {
-    window.location.href = searchURL;
+      window.location.href = searchURL;
   }
 
   return searchURL;
@@ -307,12 +308,12 @@ document.querySelectorAll('.product_menu3 li').forEach((li) => {
     // 메뉴 C가 변경되었을 때, 메뉴 D를 초기 상태로 되돌림.
     document.getElementById("selected_product4").textContent = '모델 선택';
 
-    // 뒤에 있는 메뉴들의 서브메뉴를 닫습니다.
+    // 뒤에 있는 메뉴들의 서브메뉴를 닫rl
     toggleMenu(menus[3], false); // D 메뉴의 서브메뉴를 닫기.
   });
 });
 
-// 전역 변수로 선택된 모델의 키를 저장할 변수를 선언합니다.
+// 전역 변수로 선택된 모델의 키를 저장할 변수를 선언.
 let selectedModelKey = '';
 
 // 모델 선택 메뉴(D) 클릭 이벤트
@@ -320,10 +321,8 @@ document.querySelectorAll('.product_menu4 li').forEach((li) => {
   li.addEventListener('click', (event) => {
     // 클릭된 모델의 data-key를 저장합니다.
     selectedModelKey = event.target.getAttribute('data-key');
-    // 선택된 모델 이름을 '모델 선택' 영역에 표시합니다.
+    // 선택된 모델 이름을 '모델 선택' 영역에 표시.
     document.getElementById("selected_product4").textContent = selectedModelKey;
-    
-    // 여기서 바로 페이지 이동을 하지 않습니다.
   });
 });
 // //main_search
@@ -332,20 +331,20 @@ document.querySelectorAll('.product_menu4 li').forEach((li) => {
 
 
 
-const tabBtn = document.querySelectorAll(".tab_btn>ul>li"); //버튼설정
-const tabCont = document.querySelectorAll(".tab_cont>div"); //콘테츠 설정
+const tabBtn = document.querySelectorAll(".tab_btn > ul > li"); // 버튼 설정
+const tabCont = document.querySelectorAll(".tab_cont > div"); // 콘텐츠 설정
 
-tabCont.forEach(el => el.style.display = "none"); //모든 콘텐츠를 숨김
-tabCont[0].style.display = "block";  //첫번째 콘텐츠를 보이게 설정
+tabCont.forEach(el => el.style.display = "none"); // 모든 콘텐츠를 숨김
+tabCont[0].style.display = "block"; // 첫 번째 콘텐츠를 보이게 설정
 
-tabBtn.forEach((tab,index)=> {
-  tab.addEventListener("click",()=>{
-    tabBtn.forEach(tab =>tab.classList.remove("active")); //모든버튼클래스 삭제
-    tab.classList.add("active");     //클릭한 버튼만 클래스 추가
+tabBtn.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+        tabBtn.forEach(tab => tab.classList.remove("active")); // 모든 버튼 클래스 삭제
+        tab.classList.add("active"); // 클릭한 버튼만 클래스 추가
 
-    tabCont.forEach(cont =>cont.style.display = "none");  //모든 콘텐츠를 숨김
-    tabCont[index].style.display = "block";    //클릭한 버튼의 콘텐츠 내용을 보여줌
-  });
+        tabCont.forEach(cont => cont.style.display = "none"); // 모든 콘텐츠를 숨김
+        tabCont[index].style.display = "block"; // 클릭한 버튼의 콘텐츠 내용을 보여줌
+    });
 });
 // //tab_menu
 
@@ -358,103 +357,102 @@ const resetButton = document.querySelector('.cancel');
 
 // "다시 선택하기" 버튼 클릭 시 이벤트 처리
 resetButton.addEventListener('click', function () {
-  // 체크된 값이 있는 라디오 버튼을 찾아서 초기값으로 설정
-  const checkedRadio = document.querySelector('input[type="radio"]:checked');
+    // 체크된 값이 있는 라디오 버튼을 찾아서 초기값으로 설정
+    const checkedRadio = document.querySelector('input[type="radio"]:checked');
 
-  // 체크된 값이 있을 경우에만 초기값으로 설정
-  if (checkedRadio) {
-    checkedRadio.checked = false; // 기존 체크 해제
-  }
+    // 체크된 값이 있을 경우에만 초기값으로 설정
+    if (checkedRadio) {
+        checkedRadio.checked = false; // 기존 체크 해제
+    }
 
-  // 각 라디오 그룹의 첫 번째 값으로 초기화
-  const radioGroups = document.querySelectorAll('input[type="radio"]');
-  radioGroups.forEach(group => {
-    group.checked = group.defaultChecked;
-  });
+    // 각 라디오 그룹의 첫 번째 값으로 초기화
+    const radioGroups = document.querySelectorAll('input[type="radio"]');
+    radioGroups.forEach(group => {
+        group.checked = group.defaultChecked;
+    });
 
-  // '난방면적 기준' 서브메뉴 표시 및 '온수사용량 기준(동절기)' 서브메뉴 숨김 처리
-  box1.style.display = 'block';
-  box3.style.display = 'none';
+    // '난방면적 기준' 서브메뉴 표시 및 '온수사용량 기준(동절기)' 서브메뉴 숨김 처리
+    box1.style.display = 'block';
+    box3.style.display = 'none';
 
-  // '난방면적 기준' 상위 메뉴가 선택되도록 설정
-  document.querySelector('.tab_cont1_2_box1 .select input').checked = true;
+    // '난방면적 기준' 상위 메뉴가 선택되도록 설정
+    document.querySelector('.tab_cont1_2_box1 .select input').checked = true;
 
-  // 사용자 선택 초기화 후 보일러 찾기 실행
-  allResults = findBoiler();
-  
-  // 페이지 및 페이지네이션 업데이트
-  goToPage(1);
+    // 사용자 선택 초기화 후 보일러 찾기 실행
+    allResults = findBoiler();
+
+    // 페이지 및 페이지네이션 업데이트
+    goToPage(1);
 });
 
 // 상위 메뉴에 따른 서브메뉴 표시 제어
-    const box1 = document.querySelector('.tab_cont1_2_box2');
-    const box3 = document.querySelector('.tab_cont1_2_box4');
+const box1 = document.querySelector('.tab_cont1_2_box2');
+const box3 = document.querySelector('.tab_cont1_2_box4');
 
-  // '온수사용량 기준(동절기)' 라디오 버튼 선택 해제
-    const box4Radios = document.querySelectorAll('.tab_cont1_2_box4 .select input');
+// '온수사용량 기준(동절기)' 라디오 버튼 선택 해제
+const box4Radios = document.querySelectorAll('.tab_cont1_2_box4 .select input');
+box4Radios.forEach(radio => {
+    radio.checked = false;
+});
+
+// 상위 메뉴에 따른 서브메뉴 표시 제어 함수
+function controlSubMenuDisplay(box1Display, box3Display, box4RadiosDisabled) {
+    box1.style.display = box1Display;
+    box3.style.display = box3Display;
+
+    // '온수사용량 기준(동절기)' 라디오 버튼 선택 해제 및 비활성화
     box4Radios.forEach(radio => {
         radio.checked = false;
+        radio.disabled = box4RadiosDisabled;
     });
+}
 
-    // 상위 메뉴에 따른 서브메뉴 표시 제어
-    document.querySelector('.tab_cont1_2_box1 .select').addEventListener('click', function () {
-        // '난방면적 기준' 서브메뉴 표시 및 '온수사용량 기준(동절기)' 서브메뉴 숨김 처리
-        box1.style.display = 'block';
-        box3.style.display = 'none';
-        // '온수사용량 기준(동절기)' 라디오 버튼 선택 해제 및 비활성화
-        const box4Radios = document.querySelectorAll('.tab_cont1_2_box4 .select input');
-        box4Radios.forEach(radio => {
-            radio.checked = false;
-            radio.disabled = true;
-        });
-        // '난방면적 기준' 라디오 버튼 활성화
-        const box2Radios = document.querySelectorAll('.tab_cont1_2_box2 .select input');
-        box2Radios.forEach(radio => {
-            radio.disabled = false;
-        });
+// '난방면적 기준' 라디오 버튼 클릭 시
+document.querySelector('.tab_cont1_2_box1 .select').addEventListener('click', function () {
+    controlSubMenuDisplay('block', 'none', true);
+
+    // '난방면적 기준' 라디오 버튼 활성화
+    const box2Radios = document.querySelectorAll('.tab_cont1_2_box2 .select input');
+    box2Radios.forEach(radio => {
+        radio.disabled = false;
     });
+});
 
-    document.querySelector('.tab_cont1_2_box3 .select').addEventListener('click', function () {
-        // '온수사용량 기준(동절기)' 서브메뉴 표시 및 '난방면적 기준' 서브메뉴 숨김 처리
-        box1.style.display = 'none';
-        box3.style.display = 'block';
-        // '난방면적 기준' 라디오 버튼 선택 해제 및 비활성화
-        const box2Radios = document.querySelectorAll('.tab_cont1_2_box2 .select input');
-        box2Radios.forEach(radio => {
-            radio.checked = false;
-            radio.disabled = true;
-        });
-        // '온수사용량 기준(동절기)' 라디오 버튼 활성화
-        const box4Radios = document.querySelectorAll('.tab_cont1_2_box4 .select input');
-        box4Radios.forEach(radio => {
-            radio.disabled = false;
-        });
+// '온수사용량 기준(동절기)' 라디오 버튼 클릭 시
+document.querySelector('.tab_cont1_2_box3 .select').addEventListener('click', function () {
+    controlSubMenuDisplay('none', 'block', false);
+
+    // '온수사용량 기준(동절기)' 라디오 버튼 활성화
+    const box4Radios = document.querySelectorAll('.tab_cont1_2_box4 .select input');
+    box4Radios.forEach(radio => {
+        radio.disabled = false;
     });
-
+});
 // //sub_tab_menu
 
 
 
  
- const resultsPerPage = 9;
- let currentPage = 1;
- let totalResults = 0;
- let currentResults = [];
- let filteredResults = [];
- let allResults; // 전역 변수로 선언
- 
- 
-    window.onload = function() {
 
-      // 사용자가 페이지를 새로고침했는지 확인합니다.
-      if (window.performance.getEntriesByType("navigation")[0].type === 'reload') {
-        // 로컬 스토리지의 모든 키를 가져와서 새로고침시 삭제합니다.
-        const keys = Object.keys(localStorage);
-        keys.forEach(key => {
-          if (key.startsWith('mainitem')) {
-            localStorage.removeItem(key);
-          }
-        });
+ const resultsPerPage = 9;
+let currentPage = 1;
+let totalResults = 0;
+let currentResults = [];
+let filteredResults = [];
+let allResults; // 전역 변수로 선언
+
+window.onload = function() {
+  // 사용자가 페이지를 새로고침했는지 확인합니다.
+  const isPageReload = window.performance.getEntriesByType("navigation")[0].type === 'reload';
+
+  if (isPageReload) {
+    // 로컬 스토리지의 모든 키를 가져와서 새로고침시 삭제합니다.
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith('mainitem')) {
+        localStorage.removeItem(key);
+      }
+    });
+  
         // 새로고침시 전체 결과를 보여줍니다.
         // filteredResults = allResults;
       // } else {
@@ -466,13 +464,13 @@ resetButton.addEventListener('click', function () {
       //     // sessionStorage에 저장된 필터링된 결과가 없다면 전체 결과를 보여줍니다.
       //     filteredResults = allResults;
       //   }
-      }
-       // 새로고침이든 뒤로 가기든 전체 결과를 보여줍니다.
-      filteredResults = allResults;
+  }
+  // 새로고침이든 뒤로 가기든 전체 결과를 보여줍니다.
+  filteredResults = allResults;
       
-      totalResults = filteredResults.length;
-      goToPage(currentPage); // 현재 페이지 번호를 유지하고 싶다면 currentPage 변수를 사용
-    };
+  totalResults = filteredResults.length;
+  goToPage(currentPage); // 현재 페이지 번호를 유지하고 싶다면 currentPage 변수를 사용
+};
     
       
  // 보일러 찾기 실행
@@ -491,7 +489,7 @@ function findBoiler() {
    // 보일러 검색 및 결과 가져오기 시뮬레이션
    // 실제 데이터 또는 API 호출로 대체하세요
    allResults = [
-    { id: "mainitem1", boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C"], name: "결과 1", image: "img/main/item/나비엔-pro-일반-가스보일러.png" },
+      { id: "mainitem1", boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C"], name: "결과 1", image: "img/main/item/나비엔-pro-일반-가스보일러.png" },
       { id: "mainitem2", boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: "0.5°C", name: "결과 2", image: "img/main/item/나비엔-콘뎅싱-디럭스형-18kd.png" },
       { id: "mainitem3", boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: "66",InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"],name: "결과 3", image: "img/main/item/나비엔-콘덴싱-기름보일러1.png" },
       { id: "mainitem4", name: "결과 4", image: "img/main/item/Untitled-1.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
@@ -690,7 +688,7 @@ function findBoiler() {
  
 
   
-  // 스펙명 박스를 만들고 결과 컨테이너에 추가
+// 스펙명 박스를 만들고 결과 컨테이너에 추가
 const specNameBox = document.createElement('div');
 specNameBox.classList.add('specNameBox');
 resultsContainer.appendChild(specNameBox);
@@ -708,75 +706,73 @@ specNames.forEach(name => {
 
 
 // 로컬 스토리지에서 선택한 아이템의 id를 가져와 그에 해당하는 결과를 찾기.
-  const keys = Object.keys(localStorage);
-  let selectedItems = [];
-  keys.forEach(key => {
-  if(key.startsWith('mainitem')) {
-  const result = allResults.find(result => result.id === key);
-  if(result) {
-  result.selectedTime = Number(localStorage.getItem(key)); // 선택 시간을 결과에 추가
-  selectedItems.push(result);
-  }
-  }
-  });
-  
-  // 선택 시간으로 결과를 정렬
-  selectedItems.sort((a, b) => a.selectedTime - b.selectedTime);
-
-    
-  // 선택된 아이템들을 팝업창에 추가
-  selectedItems.forEach(result => {
-  // 스펙 테이블의 각 행에서 스펙명만 specNameBox에 추가
-    if (result.specs) {
-      Object.entries(result.specs).forEach(([key, _]) => {
-        const specName = document.createElement('p');
-        specName.textContent = key;
-        specNameBox.appendChild(specName);
-      });
+const keys = Object.keys(localStorage);
+let selectedItems = [];
+keys.forEach(key => {
+  if (key.startsWith('mainitem')) {
+    const result = allResults.find(result => result.id === key);
+    if (result) {
+      result.selectedTime = Number(localStorage.getItem(key)); // 선택 시간을 결과에 추가
+      selectedItems.push(result);
     }
+  }
+});
+
+// 선택 시간으로 결과를 정렬
+selectedItems.sort((a, b) => a.selectedTime - b.selectedTime);
+
+// 선택된 아이템들을 팝업창에 추가
+selectedItems.forEach(result => {
+  // 스펙 테이블의 각 행에서 스펙명만 specNameBox에 추가
+  if (result.specs) {
+    Object.entries(result.specs).forEach(([key, _]) => {
+      const specName = document.createElement('p');
+      specName.textContent = key;
+      specNameBox.appendChild(specName);
+    });
+  }
 
 
   // 상단 컨테이너를 만들고 결과 이미지와 이름을 추가.
-  const topContainer = document.createElement('div');
-  topContainer.classList.add('topContainer'); // 추가: 상단 컨테이너에 클래스 이름 추가
-  
-  const imageElement = document.createElement('img');
-  imageElement.src = result.image;
-  imageElement.alt = result.name + ' 이미지';
-  topContainer.appendChild(imageElement); // 수정: 이미지를 상단 컨테이너에 추가
-  
-  const resultElement = document.createElement('p');
-  resultElement.textContent = result.name;
-  resultElement.style.cursor = 'pointer';
-  // 결과 이름을 클릭했을 때의 이벤트 리스너를 추가합니다.
-  resultElement.addEventListener('click', function() {
-    console.log(result.name + '의 상세 페이지로 이동합니다.');
-    window.location.href = '/detail/' + result.id; // 실제 상세 페이지 URL을 설정합니다.
-  });
-  topContainer.appendChild(resultElement); // 수정: 결과 이름을 상단 컨테이너에 추가
-  popupHeader.appendChild(topContainer); // 추가: 상단 컨테이너를 결과 컨테이너에 추가
-  
-  // 하단 컨테이너를 만들고 스펙 테이블을 추가.
-  const bottomContainer = document.createElement('div');
-  bottomContainer.classList.add('bottomContainer'); // 추가: 하단 컨테이너에 클래스 이름 추가
-  const specTable = document.createElement('table');
-  specTable.classList.add('resultTable');
-  
-  // 테이블을 담을 컨테이너를 생성합니다.
-  const specTableContainer = document.createElement('div');
-  specTableContainer.classList.add('specTableContainer');
-  
-  
-  // 테이블을 컨테이너에 추가합니다.
-  specTableContainer.appendChild(specTable);
-  bottomContainer.appendChild(specTableContainer); // 수정: 테이블을 하단 컨테이너에 추가
-  
-  // 하단컨테이너를 'resultContainer'에 추가.
-  resultsContainer.appendChild(bottomContainer);
-  
+const topContainer = document.createElement('div');
+topContainer.classList.add('topContainer'); // 추가: 상단 컨테이너에 클래스 이름 추가
+
+const imageElement = document.createElement('img');
+imageElement.src = result.image;
+imageElement.alt = result.name + ' 이미지';
+topContainer.appendChild(imageElement); // 수정: 이미지를 상단 컨테이너에 추가
+
+const resultElement = document.createElement('p');
+resultElement.textContent = result.name;
+resultElement.style.cursor = 'pointer';
+// 결과 이름을 클릭했을 때의 이벤트 리스너를 추가합니다.
+resultElement.addEventListener('click', function() {
+  console.log(result.name + '의 상세 페이지로 이동합니다.');
+  window.location.href = '/detail/' + result.id; // 실제 상세 페이지 URL을 설정.
+});
+topContainer.appendChild(resultElement); // 수정: 결과 이름을 상단 컨테이너에 추가
+popupHeader.appendChild(topContainer); // 추가: 상단 컨테이너를 결과 컨테이너에 추가
+
+// 하단 컨테이너를 만들고 스펙 테이블을 추가.
+const bottomContainer = document.createElement('div');
+bottomContainer.classList.add('bottomContainer'); // 추가: 하단 컨테이너에 클래스 이름 추가
+const specTable = document.createElement('table');
+specTable.classList.add('resultTable');
+
+// 테이블을 담을 컨테이너를 생성합니다.
+const specTableContainer = document.createElement('div');
+specTableContainer.classList.add('specTableContainer');
+
+// 테이블을 컨테이너에 추가합니다.
+specTableContainer.appendChild(specTable);
+bottomContainer.appendChild(specTableContainer); // 수정: 테이블을 하단 컨테이너에 추가
+
+// 하단컨테이너를 'resultContainer'에 추가.
+resultsContainer.appendChild(bottomContainer);
+
 // 'itemContainer'에 'scroll' 이벤트 리스너를 추가합니다.
 itemContainer.addEventListener('scroll', function() {
-  // 스크롤 위치에 따라 'specNameBox' 및 'productNameBox'의 left 값을 itemContainer의 scrollLeft 값으로 설정합니다.
+  // 스크롤 위치에 따라 'specNameBox' 및 'productNameBox'의 left 값을 itemContainer의 scrollLeft 값으로 설정.
   specNameBox.style.left = `${this.scrollLeft}px`;
   productNameBox.style.left = `${this.scrollLeft}px`;
 });
@@ -836,55 +832,55 @@ itemContainer.addEventListener('scroll', function() {
     };
   
   // 결과값에 대응하는 설명을 테이블에 추가.
-    if (descriptions[result.id]) {
+  if (descriptions[result.id]) {
     descriptions[result.id].forEach(desc => {
-    const descRow = document.createElement('tr');
-  
-    const descCell = document.createElement('td');
-    descCell.textContent = desc; // 결과값에 대응하는 설명의 한 부분을 가져오기
-    descRow.appendChild(descCell);
-  
-    specTable.appendChild(descRow);
+      const descRow = document.createElement('tr');
+
+      const descCell = document.createElement('td');
+      descCell.textContent = desc; // 결과값에 대응하는 설명의 한 부분을 가져오기
+      descRow.appendChild(descCell);
+
+      specTable.appendChild(descRow);
     });
-    }
+  }
+
   if (result.specs) {
     // 나머지 스펙을 테이블에 추가.
     Object.entries(result.specs).forEach(([key, value]) => {
-    const row = document.createElement('tr');
-  
-    const specNameCell = document.createElement('td');
-    specNameCell.textContent = key;
-    row.appendChild(specNameCell);
-  
-    const specValueCell = document.createElement('td');
-    specValueCell.textContent = value;
-    row.appendChild(specValueCell);
-  
-    specTable.appendChild(row);
+      const row = document.createElement('tr');
+
+      const specNameCell = document.createElement('td');
+      specNameCell.textContent = key;
+      row.appendChild(specNameCell);
+
+      const specValueCell = document.createElement('td');
+      specValueCell.textContent = value;
+      row.appendChild(specValueCell);
+
+      specTable.appendChild(row);
     });
-    }
-  
-  });
+  }
+});
   
   
   // 선택된 제품이 없다면 팝업창을 열지 않는다.
-  if (selectedItems.length === 0) {
+if (selectedItems.length === 0) {
   alert('선택된 제품이 없습니다. 제품을 선택한 후 다시 시도해주세요.');
   return;
-  }
-  
-  // 팝업창을 body에 추가.
-  document.body.appendChild(popup);
-  document.body.style.overflow = 'hidden';  // 팝업이 열릴 때 overflow 설정
-  });
-  
-  
-  
-  function createEmptyGridItem() {
+}
+
+// 팝업창을 body에 추가.
+document.body.appendChild(popup);
+document.body.style.overflow = 'hidden';  // 팝업이 열릴 때 overflow 설정
+});
+
+
+
+function createEmptyGridItem() {
   const emptyItem = document.createElement('div');
   emptyItem.classList.add('result-item', 'empty');
   return emptyItem;
-  }
+}
   
 
 
@@ -1141,7 +1137,7 @@ function goToPage(page) {
 currentPage = page;
 displayResults();
 displayPagination();
-// 체크박스 상태를 복원합니다.
+// 체크박스 상태를 복원.
   restoreSelections();
 }
 
