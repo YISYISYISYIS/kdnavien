@@ -378,11 +378,11 @@ resetButton.addEventListener('click', function () {
     // '난방면적 기준' 상위 메뉴가 선택되도록 설정
     document.querySelector('.tab_cont1_2_box1 .select input').checked = true;
 
-    // 사용자 선택 초기화 후 보일러 찾기 실행
-    allResults = findBoiler();
-
-    // 페이지 및 페이지네이션 업데이트
-    goToPage(1);
+    
+    filteredResults = allResults;
+    // 총 결과 및 현재 결과 업데이트
+    totalResults = filteredResults.length;
+    goToPage(1); // 페이지 이동 시 첫 번째 페이지로 초기화
 });
 
 // 상위 메뉴에 따른 서브메뉴 표시 제어
