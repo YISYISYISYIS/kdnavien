@@ -135,6 +135,9 @@ img{
   position: relative;
   padding-bottom: 13px;
 }
+#wrap .wrap_inner .header .header_inner .header_2 .nav>ul>li:first-child>a{
+  color: #f97b0b;
+}
 #wrap .wrap_inner .header .header_inner .header_2 .nav>ul>li::after{
   content: '';
   background: #a1a1a1;
