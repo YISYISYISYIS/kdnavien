@@ -387,26 +387,39 @@ function controlSubMenuDisplay(box1Display, box3Display, box4RadiosDisabled) {
     });
 }
 
-// '난방면적 기준' 라디오 버튼 클릭 시
+// 상위 메뉴에 따른 서브메뉴 표시 제어
 document.querySelector('.tab_cont1_2_box1 .select').addEventListener('click', function () {
-    controlSubMenuDisplay('block', 'none', true);
-
-    // '난방면적 기준' 라디오 버튼 활성화
-    const box2Radios = document.querySelectorAll('.tab_cont1_2_box2 .select input');
-    box2Radios.forEach(radio => {
-        radio.disabled = false;
-    });
+  // '난방면적 기준' 서브메뉴 표시 및 '온수사용량 기준(동절기)' 서브메뉴 숨김 처리
+  box1.style.display = 'block';
+  box3.style.display = 'none';
+  // '온수사용량 기준(동절기)' 라디오 버튼 선택 해제 및 비활성화
+  const box4Radios = document.querySelectorAll('.tab_cont1_2_box4 .select input');
+  box4Radios.forEach(radio => {
+      radio.checked = false;
+      radio.disabled = true;
+  });
+  // '난방면적 기준' 라디오 버튼 활성화
+  const box2Radios = document.querySelectorAll('.tab_cont1_2_box2 .select input');
+  box2Radios.forEach(radio => {
+      radio.disabled = false;
+  });
 });
 
-// '온수사용량 기준(동절기)' 라디오 버튼 클릭 시
 document.querySelector('.tab_cont1_2_box3 .select').addEventListener('click', function () {
-    controlSubMenuDisplay('none', 'block', false);
-
-    // '온수사용량 기준(동절기)' 라디오 버튼 활성화
-    const box4Radios = document.querySelectorAll('.tab_cont1_2_box4 .select input');
-    box4Radios.forEach(radio => {
-        radio.disabled = false;
-    });
+  // '온수사용량 기준(동절기)' 서브메뉴 표시 및 '난방면적 기준' 서브메뉴 숨김 처리
+  box1.style.display = 'none';
+  box3.style.display = 'block';
+  // '난방면적 기준' 라디오 버튼 선택 해제 및 비활성화
+  const box2Radios = document.querySelectorAll('.tab_cont1_2_box2 .select input');
+  box2Radios.forEach(radio => {
+      radio.checked = false;
+      radio.disabled = true;
+  });
+  // '온수사용량 기준(동절기)' 라디오 버튼 활성화
+  const box4Radios = document.querySelectorAll('.tab_cont1_2_box4 .select input');
+  box4Radios.forEach(radio => {
+      radio.disabled = false;
+  });
 });
 // //sub_tab_menu
 
