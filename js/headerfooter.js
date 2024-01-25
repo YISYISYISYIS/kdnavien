@@ -1,18 +1,40 @@
-// window.onload = function () {
-//   let navList = document.querySelector(".nav > ul");
+  let navList = document.querySelector(".nav > ul");
 
-//   navList.addEventListener("mouseover", function () {
-//       navList.querySelectorAll(".submenu").forEach(sub => {
-//           sub.style.height = "300px";
-//       });
-//   });
-//   navList.addEventListener("mouseout", function () {
-//       navList.querySelectorAll(".submenu").forEach(sub => {
-//           sub.style.height = "0px";
-//       });
-//   });
-// }
+  navList.addEventListener("mouseover", function () {
+      navList.querySelectorAll(".submenu").forEach(sub => {
+          sub.style.height = "300px";
+      });
+      document.querySelector(".header_2").classList.add("on")
+  });
+  navList.addEventListener("mouseout", function () {
+      navList.querySelectorAll(".submenu").forEach(sub => {
+          sub.style.height = "0px";
+      });
+      document.querySelector(".header_2").classList.remove("on")
+  });
+
 // //nav
+document.querySelectorAll('#wrap .wrap_inner .header .header_inner .header_2 .nav>ul>li>ul>li>a').forEach(link => {
+  link.addEventListener('mouseenter', function() {
+    // 현재 링크의 너비를 얻습니다.
+    const width = this.offsetWidth;
+    // 밑줄의 스타일을 설정합니다.
+    const underline = this.querySelector('::after');
+    if (underline) {
+      underline.style.width = `${width}px`;
+      underline.style.left = '0px';
+      underline.style.right = 'auto';
+    }
+  });
+
+  link.addEventListener('mouseleave', function() {
+    // 마우스를 떼었을 때 밑줄을 제거합니다.
+    const underline = this.querySelector('::after');
+    if (underline) {
+      underline.style.width = '0px';
+    }
+  });
+});
 
 
 
