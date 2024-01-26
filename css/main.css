@@ -307,6 +307,7 @@ img{
 #wrap .wrap_inner .header .header_inner .header_3{
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 #wrap .wrap_inner .header .header_inner .header_3 .pathway ul{
   display: flex;
@@ -361,7 +362,7 @@ margin-top: 50px;
 }
 #wrap .wrap_inner .slider .slider_text{
   display: flex;
-  align-items:end;
+  align-items: end;
 }
 #wrap .wrap_inner .slider .slider_text h2{
   font-size: 28px;
