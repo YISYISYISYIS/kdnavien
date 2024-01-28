@@ -108,26 +108,48 @@ img{
 }
 #wrap .wrap_inner .header .header_inner .header_1 .usermenu{
   font-size: 9.5px;
-  margin-right: 10px;
   color: #909090;
 }
 #wrap .wrap_inner .header .header_inner .header_1 .usermenu ul{
   display: flex;
 }
 #wrap .wrap_inner .header .header_inner .header_1 .usermenu li{
-  margin-right: 11px;
-}
-#wrap .wrap_inner .header .header_inner .header_1 .usermenu li a img {
-  transform: translateY(80%);
-  margin-right: 5px;
+  margin-right: 20px;
+  position: relative;
 }
 #wrap .wrap_inner .header .header_inner .header_1 .usermenu li:nth-child(2){
   color: #f97b0b;
 }
-#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:nth-child(1) a img {
+#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:last-child{
+  margin-left: 10px;
+}
+#wrap .wrap_inner .header .header_inner .header_1 .usermenu li::before{
+  content: '';
+  background: url(../img/header/usemenudotimg.png) no-repeat;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  top: 3px;
+  left: -9px;
+}
+#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:first-child::before{
+  content: '';
+  background: url(../img/header/loginicon.png);
+  width: 10px;
+  height: 11px;
+  position: absolute;
+  top: 0px;
+  left: -15px;
   transform: translateY(-15%);
 }
-#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:nth-child(5) a img {     
+#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:last-child::before{
+  content: '';
+  background: url(../img/header/Partnerregistration.png);
+  width: 11px;
+  height: 9px;
+  position: absolute;
+  top: 0px;
+  left: -15px;
   transform: translateY(-5%);
 }
 #wrap .wrap_inner .header .header_inner .header_1 .dropdownmenu{
@@ -172,7 +194,7 @@ img{
 }
 #wrap .wrap_inner .header .header_inner .header_2 .logo{
   min-width: 155px;
-  /* 로고가 헤더_1부분을 침범하면서 스페이스비트윈속성을 받을려고 a에 포지션으로 띄운후 로고원래 사이즈값을 설정함. 웹버전이라 상관없는데 반응형이라면 처음 html틀잡을때 이부분은 다시 생각해봐야할듯* 헤더1,2를 로고빼서 1,2,3만들고 플랙스쓰는게 나을려나?/
+  /* 로고가 헤더_1부분을 침범하면서 스페이스비트윈속성을 받을려고 a에 포지션으로 띄운후 로고원래 사이즈값을 설정함. 반응형이라면 처음 html틀잡을때 이부분은 다시 생각해봐야할듯* 헤더1,2를 로고빼서 1,2,3만들고 플랙스?/
   /* 좌우로 줄이면 로고사이즈도 줄어들어서 민맥스값 추가 */
 }
 #wrap .wrap_inner .header .header_inner .header_2 .logo a{
@@ -207,6 +229,7 @@ img{
   padding: 0px 30px;
   font-weight: 700;
   font-size: 18px;
+  transition: all 300ms;
 }
 #wrap .wrap_inner .header .header_inner .header_2 .nav>ul>li>a:hover{
   color: #b5b5b5;
@@ -228,6 +251,7 @@ img{
   font-size: 12px;
   width: 100%;
   position: relative;
+  transition: all 200ms;
 }
 #wrap .wrap_inner .header .header_inner .header_2 .nav>ul>li>ul>li>a:hover{
   color: #b5b5b5;
@@ -368,10 +392,12 @@ margin-top: 50px;
   font-size: 28px;
   font-weight: 700;
   margin-right: 10px;
+  color: #303030;
 }
 #wrap .wrap_inner .slider .slider_text p{
   font-size: 12px;
   font-weight: 500;
+  color: #757575;
 }
 #wrap .wrap_inner .slider .swiper {
   width: 100%;
@@ -588,6 +614,10 @@ margin-top: 50px;
   align-items: center;
   box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.4);
   cursor: pointer;
+  transition: all 300ms;
+}
+#wrap .wrap_inner .main .main_inner .contents1 .main_search:hover{
+  background-color: #808080;
 }
 /* //contents1 */
 
@@ -875,6 +905,10 @@ margin-top: 5px;
   font-weight: 600;
   box-shadow: 0.5px 0.5px 1px #c2c2c2;
   cursor: pointer;
+  transition: all 300ms;
+}
+#wrap .wrap_inner .main .main_inner .contents2 .cont2_container .cont2_search .submit:hover{
+  background-color: #808080;
 }
 #wrap .wrap_inner .main .main_inner .contents2 .cont2_container .cont2_search .cancel{
   border: 1px solid #a1a1a1;
@@ -888,6 +922,10 @@ margin-top: 5px;
   color: #fff;
   box-shadow: 0.5px 0.5px 1px #868686;
   cursor: pointer;
+  transition: all 300ms;
+}
+#wrap .wrap_inner .main .main_inner .contents2 .cont2_container .cont2_search .cancel:hover{
+  background-color: #f97b0b;
 }
 /* //contents2 */
 
@@ -972,6 +1010,11 @@ margin-top: 5px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: all 300ms;
+}
+#wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_text .cont3_text_2 .compareproducts:hover{
+  background-color: #808080;
+  color: #fff;
 }
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_text .cont3_text_2 .compareproducts img{
   margin: 0px 4px;
@@ -983,6 +1026,11 @@ margin-top: 5px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: all 300ms;
+}
+#wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_text .cont3_text_2 .selectagain:hover{
+  background-color: #808080;
+  color: #fff;
 }
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_text .cont3_text_2 .selectagain img{
   margin-right: 3px;
@@ -1045,6 +1093,11 @@ margin-top: 5px;
   box-shadow: 0.5px 0.5px 2px #c7c7c7;
   font-weight: 500;
   color: #818181;
+  transition: all 300ms;
+}
+#wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_itemlist .result-container .result-item .detail-page:hover{
+  background-color: #f97b0b;
+  color: #fff;
 }
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_itemlist #no-results{
   position: absolute;
@@ -1077,6 +1130,7 @@ margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 300ms;
 }
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_itemlist .pagination .prevButton:hover{
   background: gray;
@@ -1088,6 +1142,7 @@ margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 300ms;
 }
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_itemlist .pagination .firstPageButton:hover{
   background: gray
@@ -1095,6 +1150,7 @@ margin-top: 5px;
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_itemlist .pagination .pageButton{
   font-size: 10px;
   color: gray;
+  transition: all 300ms;
 }
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_itemlist .pagination .pageButton:hover{
   color: #f97b0b;
@@ -1106,6 +1162,7 @@ margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 300ms;
 }
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_itemlist .pagination .nextButton:hover{
   background: gray;
@@ -1117,6 +1174,7 @@ margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 300ms;
 }
 #wrap .wrap_inner .main .main_inner .contents3 .cont3_container .cont3_itemlist .pagination .lastPageButton:hover{
   background: gray;
@@ -1156,11 +1214,21 @@ margin-top: 5px;
   overflow-x: auto;  /* 가로 스크롤을 활성화 */
   overflow-y: hidden;  /* 세로 스크롤을 비활성화 */
 }
-.popup .popupinner .closeButton {
+.popup .popupinner .closeButton{
   position: fixed;
   top: 10px;
-  right: 30px;
+  right: 20px;
   z-index: 101;
+  background-color: #f97b0b;
+  color: white; 
+  border: none; 
+  border-radius: 3px; 
+  padding: 3px 6px; 
+  cursor: pointer;
+  transition: all 300ms;
+}
+.popup .popupinner .closeButton:hover{
+  background-color: #808080;
 }  
 .popup .popupinner .itemContainer .popupHeader{
   display: flex;

@@ -36,11 +36,11 @@
           <div class="header_1">
             <div class="usermenu">
               <ul>
-                <li><a href="#"><img src="img/header/로그인.png" alt="로그인아이콘">로그인</a></li>
-                <li><a href="signup.html"><img src="img/header/유저메뉴도트이미지.png" alt="메뉴도트이미지">회원가입</a></li>
-                <li><a href="#"><img src="img/header/유저메뉴도트이미지.png" alt="메뉴도트이미지">마이 나비엔</a></li>
-                <li><a href="#"><img src="img/header/유저메뉴도트이미지.png" alt="메뉴도트이미지">나비엔 SNS</a></li>
-                <li><a href="#"><img src="img/header/협력사등록.png" alt="협력사등록이미지">협력사 등록</a></li>
+                <li><a href="#">로그인</a></li>
+                <li><a href="signup.html">회원가입</a></li>
+                <li><a href="#">마이 나비엔</a></li>
+                <li><a href="#">나비엔 SNS</a></li>
+                <li><a href="#">협력사 등록</a></li>
               </ul>
             </div>
             <div class="dropdownmenu">
@@ -101,7 +101,8 @@
               </ul>
             </div>
               <div class="header_search">
-                <form action="데이터가 처리될 서버의 URL" method="get">
+                <form action="https://example.com/placeholder" method="get">
+                  <!-- //<form action="데이터가 처리될 서버의 URL" method="get">↩  -->
                   <div class="search_input_container">
                     <input type="text" name="header_search" placeholder="SEARCH">
                     <button class="search_ok" type="submit">
@@ -158,99 +159,150 @@
               <h3>기업회원정보 입력</h3>
               <p><span style="color: #f97b0b">*</span>표시된 항목은 반드시 입력해주시기 바랍니다.</p>
             </div>
-            <form id="signup-form" action="회원가입 처리할 서버 URL" method="post">
+            <form id="signup-form" action="https://example.com/placeholder" method="post">
+              <!-- //<form action="데이터가 처리될 서버의 URL" method="get">↩  -->
               <div>
-                <label for="company-name">회사명<span style="color: #f97b0b; font-size: 16px;">*</label>
-                <input type="text" id="company-name" name="companyName" required>
-                <label for="email" class="labelemail">이메일<span style="color: #f97b0b; font-size: 16px;">*</label>
-                <input type="email" id="email" name="email" required autocomplete="off"> @
-                <select id="email-domain" name="emailDomain">
-                  <option value="">직접 입력</option>
-                  <option value="@naver.com">naver.com</option>
-                  <option value="@google.com">google.com</option>
-                  <option value="@daum.net">daum.net</option>
-                  <!-- 여기에 더 많은 도메인 추가 가능 -->
-                </select>
-              </div>
-              <div>
-                <label for="user-id">아이디<span style="color: #f97b0b; font-size: 16px;">*</span></label>
-                <input type="text" id="user-id" name="userId" autocomplete="new-password" required>
-                <span> 5~12자 이내 영문과 숫자 조합(대소문자 구별)</span>
-              </div>
-              <div>
-                <label for="password">비밀번호<span style="color: #f97b0b; font-size: 16px;">*</span></label>
-                <input type="password" id="password" name="password" autocomplete="new-password" required>
-                <span> 4~12자 이내 영문과 숫자 조합(대소문자 구별)</span>
-              </div>
-              <div>
-                <label for="confirm-password">비밀번호 확인<span style="color: #f97b0b; font-size: 16px;">*</span></label>
-                <input type="password" id="confirm-password" name="confirmPassword" autocomplete="new-password" required>
-              </div>
-              <div>
-                <label for="phone-prefix">연락처(대표전화)<span style="color: #f97b0b; font-size: 16px;">*</span></label>
-                <select id="phone-prefix" name="phonePrefix">
-                  <option value="010">010</option>
-                  <option value="02">02</option>
-                  <option value="031">031</option>
-                  <!-- 지역번호 더 추가 -->
-                </select> -
-                <input type="text" id="phone1" name="phone1" required> -
-                <input type="text" id="phone2" name="phone2" required>
-              </div>
-              <div>
-                <label for="fax-prefix">연락처(Fax)</label>
-                <select id="fax-prefix" name="faxPrefix">
-                  <option value="02">02</option>
-                  <option value="031">031</option>
-                  <!-- 지역번호 더 추가 -->
-                </select> -
-                <input type="text" id="fax1" name="fax1"> - 
-                <input type="text" id="fax2" name="fax2">
-              </div>
-              <div class="address-container">
-                <label for="postcode">주소<span style="color: #f97b0b; font-size: 16px;">*</span></label>
-                <input type="text" id="postcode" name="postcode" required> -
-                <input type="text" id="postcode2" name="postcode2" required>
-                <button type="button" id="find-postcode">우편번호 찾기</button>
                 <div>
-                  <label for="address"></label>
-                  <input type="text" id="address" name="address" required readonly>
-                  <input type="text" id="detail-address" name="detailAddress" required>
+                  <label for="company-name">회사명<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                  <input type="text" id="company-name" name="companyName" required>
+                <div class="labelemail">
+                  <div>
+                    <label for="email">이메일<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                  </div>
+                  <div class="input-box i2">
+                    <input type="email" id="email" name="email" required autocomplete="off">&nbsp;<span style="color: #cccccc;">@</span>&nbsp;
+                    <select id="email-domain" name="emailDomain">
+                      <option value="">&nbsp;직접 입력</option>
+                      <option value="@naver.com">&nbsp;naver.com</option>
+                      <option value="@google.com">&nbsp;google.com</option>
+                      <option value="@daum.net">&nbsp;daum.net</option>
+                      <!-- 여기에 더 많은 도메인 추가 가능 -->
+                    </select>
+                  </div>
                 </div>
               </div>
               <div>
-                <label for="manager-name">담당자 명<span style="color: #f97b0b; font-size: 16px;">*</span></label>
-                <input type="text" id="manager-name" name="managerName" required>
+                <div>
+                  <label for="user-id">아이디<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                <div class="input-box i3">
+                  <input type="text" id="user-id" name="userId" autocomplete="new-password" required>
+                  <p> 5~12자 이내 영문과 숫자 조합(대소문자 구별)</p>
+                </div>
               </div>
               <div>
-                <label for="manager-contact-prefix">담당자 연락처<span style="color: #f97b0b; font-size: 16px;">*</span></label>
-                <select id="manager-contact-prefix" name="managercontactprefix">
-                  <option value="010">010</option>
-                  <option value="02">02</option>
-                  <option value="031">031</option>
+                <div>
+                  <label for="password">비밀번호<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                <div class="input-box i4">
+                  <input type="password" id="password" name="password" autocomplete="new-password" required>
+                  <p> 4~12자 이내 영문과 숫자 조합(대소문자 구별)</p>
+                </div>
+              </div>
+              <div>
+                <div>
+                   <label for="confirm-password">비밀번호 확인<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                <div class="input-box i5">
+                   <input type="password" id="confirm-password" name="confirmPassword" autocomplete="new-password" required>
+                </div>
+               </div>
+              <div>
+                <div>
+                  <label for="phone-prefix">연락처(대표전화)<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                <div class="input-box i6">
+                  <select id="phone-prefix" name="phonePrefix">
+                  <option value="010">&nbsp;010</option>
+                  <option value="02">&nbsp;02</option>
+                  <option value="031">&nbsp;031</option>
                   <!-- 지역번호 더 추가 -->
-                </select> -
-                <input type="text" id="manager-contact1" name="managercontact1"> -
-                <input type="text" id="manager-contact2" name="managercontact2">
+                  </select>&nbsp;<span style="color: #cccccc;">-</span>&nbsp;
+                  <input type="text" id="phone1" class="number-input" name="phone1" required maxlength="4">&nbsp;<span style="color: #cccccc;">-</span>&nbsp;
+                  <input type="text" id="phone2" class="number-input" name="phone2" required maxlength="4">
+                </div>
               </div>
               <div>
-                <label for="website">홈페이지</label>
-                <input type="url" id="website" name="website"> 
-                <span>예)https://www.kdnavien.co.kr</span>
+                <div>
+                  <label for="fax-prefix">연락처(Fax)</label>
+                </div>
+                <div class="input-box i7">
+                  <select id="fax-prefix" name="faxPrefix">
+                  <option value="02">&nbsp;02</option>
+                  <option value="031">&nbsp;031</option>
+                  <!-- 지역번호 더 추가 -->
+                  </select>&nbsp;<span style="color: #cccccc;">-</span>&nbsp;
+                  <input type="text" id="fax1" class="number-input" name="fax1" required maxlength="4">&nbsp;<span style="color: #cccccc;">-</span>&nbsp; 
+                  <input type="text" id="fax2" class="number-input" name="fax2" required maxlength="4">
+                </div>
+              </div>
+              <div class="address-container">
+                <div class="address-container-box">
+                  <label for="postcode">주소<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                <div class="input-box i8">
+                  <div>
+                    <input type="text" id="postcode" name="postcode" required readonly>&nbsp;<span class="postcode-separator">-</span>&nbsp;
+                    <input type="text" id="postcode2" name="postcode2" required readonly>
+                  <button type="button" id="find-postcode">우편번호 찾기</button>
+                  </div>
+                  <div class="address-box">
+                    <label for="address"></label>
+                    <input type="text" id="address" name="address" required readonly>
+                    <input type="text" id="detail-address" name="detailAddress" required>
+                  </div>
+                </div>
               </div>
               <div>
-                <label>메일링 수신여부<span style="color: #f97b0b; font-size: 16px;">*</span></label>
-                <input type="radio" id="mailing-yes" name="mailing" value="yes" required checked>
-                <label for="mailing-yes" class="labelmailing-yes">예</label>
-                <input type="radio" id="mailing-no" name="mailing" value="no" required>
-                <label for="mailing-no" class="labelmailing-no">아니오</label>
-                
-                <p>*경동나비엔은 이메일과 홈페이지를 이용하여 다양한 정보를 제공합니다.</p>
-                <p>*경동나비엔에서 제공하는 정보를 받아보시기를 원하신다면 "예"에 체크하여 주십시오.</p>
+                <div>
+                  <label for="manager-name">담당자 명<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                <div class="input-box i9">
+                  <input type="text" id="manager-name" name="managerName" required>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label for="manager-contact-prefix">담당자 연락처<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                <div class="input-box i10">
+                  <select id="manager-contact-prefix" name="managercontactprefix">
+                  <option value="010">&nbsp;010</option>
+                  <option value="02">&nbsp;02</option>
+                  <option value="031">&nbsp;031</option>
+                  <!-- 지역번호 더 추가 -->
+                  </select>&nbsp;<span style="color: #cccccc;">-</span>&nbsp;
+                  <input type="text" id="manager-contact1" class="number-input" name="managercontact1" required maxlength="4">&nbsp;<span style="color: #cccccc;">-</span>&nbsp;
+                  <input type="text" id="manager-contact2" class="number-input" name="managercontact2" required maxlength="4">
+                </div>
+              </div>
+              <div>
+                <div>
+                   <label for="website">홈페이지</label>
+                </div>
+                <div class="input-box i11">
+                  <input type="url" id="website" name="website"> 
+                  <p>예)https://www.kdnavien.co.kr</p>
+                </div>
+              </div>
+              <div class="mailing">
+                <div class="mailing-box">
+                  <label>메일링 수신여부<span style="color: #f97b0b; font-size: 12px;">*</span></label>
+                </div>
+                <div class="input-box i12">
+                  <input type="radio" id="mailing-yes" name="mailing" value="yes" required checked>
+                  <label for="mailing-yes" class="labelmailing-yes">예</label>
+                  <input type="radio" id="mailing-no" name="mailing" value="no" required>
+                  <label for="mailing-no" class="labelmailing-no">아니오</label>
+                  
+                  <p class="mailtext1">*경동나비엔은 이메일과 홈페이지를 이용하여 다양한 정보를 제공합니다.</p>
+                  <p class="mailtext2">*경동나비엔에서 제공하는 정보를 받아보시기를 원하신다면 "예"에 체크하여 주십시오.</p>
+                </div>
               </div>
               <div class="signup-button">
                 <div id="cancel-button" tabindex="0">취소</div>
-              <div id="accept-button" tabindex="0">확인</div>
+                <div id="accept-button" tabindex="0">확인</div>
               </div>
               
             </form>
@@ -348,6 +400,7 @@
   <!-- //wrap -->
       <script src="js/headerfooter.js"></script>
       <script src="js/signup.js"></script>
+      <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
       <!-- //java script -->
 </body>
 </html>
