@@ -23,6 +23,17 @@ img{
   max-width: 100%;
   vertical-align: top;
 }
+/* 숫자 입력 필드의 화살표를 숨김 */
+.number-input::-webkit-inner-spin-button,
+.number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.icon-star{
+  color: #f97b0b;
+  font-size: 12px;
+}
 /* common */
 
 
@@ -31,7 +42,7 @@ img{
 
 #wrap{
   width: 100%;
-  height: 2100px;
+  /* height: 1500px; */
   margin: 0 auto;
 
 }
@@ -57,23 +68,45 @@ img{
 }
 #wrap .wrap_inner .header .header_inner .header_1 .usermenu{
   font-size: 9.5px;
-  margin-right: 10px;
   color: #909090;
 }
 #wrap .wrap_inner .header .header_inner .header_1 .usermenu ul{
   display: flex;
 }
 #wrap .wrap_inner .header .header_inner .header_1 .usermenu li{
-  margin-right: 11px;
+  margin-right: 20px;
+  position: relative;
 }
-#wrap .wrap_inner .header .header_inner .header_1 .usermenu li a img {
-  transform: translateY(80%);
-  margin-right: 5px;
+#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:last-child{
+  margin-left: 10px;
 }
-#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:nth-child(1) a img {
+#wrap .wrap_inner .header .header_inner .header_1 .usermenu li::before{
+  content: '';
+  background: url(../img/signup/header/usemenudotimg.png) no-repeat;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  top: 3px;
+  left: -9px;
+}
+#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:first-child::before{
+  content: '';
+  background: url(../img/signup/header/loginicon.png);
+  width: 10px;
+  height: 11px;
+  position: absolute;
+  top: 0px;
+  left: -15px;
   transform: translateY(-15%);
 }
-#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:nth-child(5) a img {     
+#wrap .wrap_inner .header .header_inner .header_1 .usermenu li:last-child::before{
+  content: '';
+  background: url(../img/signup/header/Partnerregistration.png);
+  width: 11px;
+  height: 9px;
+  position: absolute;
+  top: 0px;
+  left: -15px;
   transform: translateY(-5%);
 }
 #wrap .wrap_inner .header .header_inner .header_1 .dropdownmenu{
@@ -154,6 +187,7 @@ img{
   padding: 0px 30px;
   font-weight: 700;
   font-size: 18px;
+  transition: all 300ms;
 }
 #wrap .wrap_inner .header .header_inner .header_2 .nav>ul>li>a:hover{
   color: #b5b5b5;
@@ -175,6 +209,7 @@ img{
   font-size: 12px;
   width: 100%;
   position: relative;
+  transition: all 200ms;
 }
 #wrap .wrap_inner .header .header_inner .header_2 .nav>ul>li>ul>li>a:hover{
   color: #b5b5b5;
@@ -306,13 +341,12 @@ img{
 
 #wrap .wrap_inner .main{
   width: 100%;
-  height: 1100px;
+  /* height: 730px; */
   margin-top: 50px;
 }
 #wrap .wrap_inner .main .main_inner{
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 255, 0.103);
 }
 #wrap .wrap_inner .main .main_inner .signup_info{
   display: flex;
@@ -322,26 +356,30 @@ img{
   font-size: 28px;
   font-weight: 700;
   margin-right: 10px;
+  color: #303030;
 }
 #wrap .wrap_inner .main .main_inner .signup_info p{
   font-size: 12px;
   font-weight: 500;
+  color: #757575;
 }
 /* //signup_info */
 #wrap .wrap_inner .main .main_inner .signup_infobox{
-  margin-top: 35px;
+  margin-top: 25px;
   display: flex;
-  border: 1px solid #b5b5b5;
+  border: 1px solid #dbdbdb;
   padding: 30px;
   font-weight: 600;
-  color: #6d6c6c;
+  color: #a7a7a7;
   justify-content: space-evenly;
+  background-color: #f9f9f9;
 } 
 #wrap .wrap_inner .main .main_inner .signup_infobox .s_infobox_check_1{
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 210px;
+  line-height: 1.2;
 }
 #wrap .wrap_inner .main .main_inner .signup_infobox .s_infobox_check_2{
   display: flex;
@@ -378,126 +416,327 @@ img{
   display: flex;
   justify-content: space-between;
   align-items: end;
-  border-bottom: 1px solid #7c7c7c;
+  border-bottom: 1.5px solid #c7c7c7;
   padding-bottom: 15px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container .s_container_text h3{
   font-size: 20px;
   font-weight: 600;
+  color: #505050;
 }
 #wrap .wrap_inner .main .main_inner .signup_container .s_container_text p{
   font-size: 12px;
+  color: #a3a3a3;
 }
+/* //signup_container */
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form{
-  font-weight: 600;
+  font-weight: 800;
+  font-size: 12px;
+  color: #505050;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form span{
-  font-size: 10px;
-  color: #757575;
-  margin-left: 10px;
+  margin-left: 2px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form p{
-  margin: 10px 0px 0px 200px;
   font-size: 10px;
-  color: #757575;
+  color: #a3a3a3;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-left: 10PX;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form input{
-  padding: 5px;
-}
-#wrap .wrap_inner .main .main_inner .signup_container #signup-form select{
-  padding: 5px;
-  outline: none;
+  padding: 2px;
+  border: 1px solid #dbdbdb;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form input:focus{
   outline: none;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form input[type="radio"]{
-  accent-color: #f97b0b;
+  display: none;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form input[type="radio"] + label::before{
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 5px;
+  border: 1px solid #dfdfdf;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+  top: 1px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form input[type="radio"]:checked + label::before{
+  background: radial-gradient(#f97b0b 40%, transparent 50%);
+  position: relative;
+  top: 1px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form select{
+  padding: 1px;
+  outline: none;
+  color: #757575;
+  border: 1px solid #dbdbdb;
+  font-size: 12px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form>div:not(:last-child){
-  border-bottom: 1px solid #b1b1b1;
-  padding: 15px;
+  border-bottom: 1px solid #e7e7e7; 
+  display: flex;
+  align-items: center;
 }
-#wrap .wrap_inner .main .main_inner .signup_container #signup-form>div>label{
-  width: 200px;
-  display: inline-block;
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form>div:not(:last-child)>div:not(:last-child){
+  padding-left: 20px;
+  background-color: #f9f9f9;
+  width: 180px;
+  height: 35px;
+  display: flex;
+  align-items: center;
 }
-#wrap .wrap_inner .main .main_inner .signup_container #signup-form>div>div>label{
-  width: 200px;
-  display: inline-block;
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form #company-name{
+  margin-left: 20px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box{
+  margin-left: 20px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i2{
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: url(../img/signup/main/selectionpointdown.png) no-repeat right 10px center;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i2.select-open{
+  background: url(../img/signup/main/selectionpointup.png) no-repeat right 10px center; 
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i2 select{
+  appearance: none;
+  background: none;
+  width: 100px;
+  padding: 2.5px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i3{
+  display: flex;
+  align-items: center;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i4{
+  display: flex;
+  align-items: center;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i6{
+  background: url(../img/signup/main/selectionpointdown.png) no-repeat;
+  background-position: 25% 50%; 
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i6.select-open{
+  background: url(../img/signup/main/selectionpointup.png) no-repeat;
+  background-position: 25% 50%;  
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i6 select{
+  appearance: none;
+  background: none;
+  padding: 2.5px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i7{
+  background: url(../img/signup/main/selectionpointdown.png) no-repeat;
+  background-position: 25% 50%; 
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i7.select-open{
+  background: url(../img/signup/main/selectionpointup.png) no-repeat;
+  background-position: 25% 50%;  
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i7 select{
+  appearance: none;
+  background: none;
+  padding: 2.5px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i10{
+  background: url(../img/signup/main/selectionpointdown.png) no-repeat;
+  background-position: 25% 50%; 
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i10.select-open{
+  background: url(../img/signup/main/selectionpointup.png) no-repeat;
+  background-position: 25% 50%;  
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i10 select{
+  appearance: none;
+  background: none;
+  padding: 2.5px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i11{
+  display: flex;
+  align-items: center;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i12{
+  margin-top: 10px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .input-box.i12 P{
+  margin-left: 0px;
+  letter-spacing: 0.5px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #email{
-  width: 200px;
+  width: 195px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form .labelemail{
-  width: 70px;
-  display: inline-block;
-  margin-left: 90px;
+  display: flex;
+  margin-left: 50px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .labelemail>div:first-child{
+  background-color: #f9f9f9;
+  width: 180px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #phone-prefix{
-  width: 85px;
+  width: 81px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #phone1{
-  width: 85px;
+  width: 80px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #phone2{
-  width: 85px;
+  width: 80px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #fax-prefix{
-  width: 85px;
-}
-#wrap .wrap_inner .main .main_inner .signup_container #signup-form #fax-prefix{
-  width: 85px;
+  width: 81px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #fax1{
-  width: 85px;
+  width: 80px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #fax2{
-  width: 85px;
+  width: 80px;
 }
-#wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container>div{
-  padding-top: 5px;
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container .address-container-box{
+  height: 69px !important;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container .address-container-box label{
+  margin-bottom: 33px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container .input-box.i8 #find-postcode{
+  background-color: #a19e99; 
+  color: white; 
+  border: none; 
+  cursor: pointer; 
+  font-size: 11px;
+  width: 80px;
+  height: 21px;
+  margin-left: 12px;
+  box-shadow: 0.5px 0.5px 2px  #080808;
+  transition: all 200ms;
+}
+.input-box.i8 input,
+.input-box.i8 button {
+  vertical-align: top;
+}
+.postcode-separator{
+  color: #cccccc;
+ line-height: 1.6;
+}
+/* 주소입력창 우편번호찾기시 위치틀어지는현상 
+input 태그와 button 태그는 기본적으로 인라인 요소로, 같은 줄에 배치됨. input 태그의 내용이 변경되면서 높이가 변하면, vertical-align 속성에 따라 그 위치가 조정될 수 있음.*/
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container .input-box.i8 #find-postcode:hover{
+  background-color: #f97b0b;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container .address-box{
+  margin-top: 9px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container .address-box #detail-address{
+  margin-bottom: 2px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container #postcode{
-  width: 85px;
+  width: 81px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container #postcode2{
-  width: 85px;
+  width: 80px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container #address{
-  width: 350px;
+  width: 320px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form .address-container #detail-address{
-  width: 350px;
+  width: 375px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #manager-contact-prefix{
-  width: 85px;
+  width: 81px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #manager-contact1{
-  width: 85px;
+  width: 80px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #manager-contact2{
-  width: 85px;
+  width: 80px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form #website{
-  width: 350px;
+  width: 320px;
 }
-#wrap .wrap_inner .main .main_inner .signup_container #signup-form>div:nth-child(11)>label:not(:first-child){
-  font-weight: 400;
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .mailing{
+  border-bottom: 1px solid #c7c7c7 !important;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .mailing .mailing-box{
+  height: 75px !important;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .mailing .mailing-box label{
+  margin-bottom: 35px;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form .labelmailing-yes{
   width: 20px;
   margin-right: 10px;
+  font-weight: 500;
+  color: #757575;
 }
 #wrap .wrap_inner .main .main_inner .signup_container #signup-form .labelmailing-no{
   width: 50px;
+  font-weight: 500;
+  color: #757575;
 }
-#wrap .wrap_inner .main .main_inner .signup_container #signup-form>div:last-child{
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .mailtext1{
+  margin-top: 10px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .mailtext2{
+  margin-bottom: 5px;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .signup-button{
   display: flex;
   justify-content: center;
   height: 50px;
   align-items: center;
+  margin-top: 10px;
 }
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .signup-button #cancel-button{
+  width: 80px;
+  height: 30px;
+  border: 1px solid #dbdbdb;
+  color: #afafaf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  margin-right: 2px;
+  cursor: pointer;
+  box-shadow: 0.4px 0.5px 0.4px #dbdbdb;
+  transition: all 300ms;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .signup-button #cancel-button:hover{
+  background-color: #bdbdbd;
+  color: #fff;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .signup-button #accept-button{
+  width: 80px;
+  height: 30px;
+  border: 1px solid #f97b0b;
+  background-color: #f97b0b;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  margin-left: 2px;
+  cursor: pointer;
+  box-shadow: 0.4px 0.5px 0.4px #ca6308;
+  transition: all 300ms;
+}
+#wrap .wrap_inner .main .main_inner .signup_container #signup-form .signup-button #accept-button:hover{
+  background-color: #808080;
+  border: 1px solid #808080;
+  box-shadow: 0.4px 0.5px 0.4px #575757;
+}
+/* //signup-form */
 /* //main */
 
 
@@ -507,7 +746,7 @@ img{
 #wrap .footer{
   width: 100%;
   height: 150px;
-  margin-top: 150px;
+  margin-top: 100px;
 }
 #wrap .footer .footer_inner{
   width: 100%;

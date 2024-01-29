@@ -435,30 +435,30 @@ let filteredResults = [];
 let allResults; // 전역 변수로 선언
 
 window.onload = function() {
-  // 사용자가 페이지를 새로고침했는지 확인합니다.
+  // 사용자가 페이지를 새로고침했는지 확인.
   const isPageReload = window.performance.getEntriesByType("navigation")[0].type === 'reload';
 
   if (isPageReload) {
-    // 로컬 스토리지의 모든 키를 가져와서 새로고침시 삭제합니다.
+    // 로컬 스토리지의 모든 키를 가져와서 새로고침시 삭제.
     Object.keys(localStorage).forEach(key => {
       if (key.startsWith('mainitem')) {
         localStorage.removeItem(key);
       }
     });
   
-        // 새로고침시 전체 결과를 보여줍니다.
+        // 새로고침시 전체 결과를 보여줌.
         // filteredResults = allResults;
       // } else {
-      //   // 뒤로 가기를 통해 돌아왔을 때는 sessionStorage에서 필터링된 결과를 복원합니다.
+      //   // 뒤로 가기를 통해 돌아왔을 때는 sessionStorage에서 필터링된 결과를 복원.
       //   const savedResults = sessionStorage.getItem('filteredResults');
       //   if (savedResults) {
       //     filteredResults = JSON.parse(savedResults);
       //   } else {
-      //     // sessionStorage에 저장된 필터링된 결과가 없다면 전체 결과를 보여줍니다.
+      //     // sessionStorage에 저장된 필터링된 결과가 없다면 전체 결과를 보여줌.
       //     filteredResults = allResults;
       //   }
   }
-  // 새로고침이든 뒤로 가기든 전체 결과를 보여줍니다.
+  // 새로고침이든 뒤로 가기든 전체 결과를 보여줌.
   filteredResults = allResults;
       
   totalResults = filteredResults.length;
@@ -480,54 +480,55 @@ function findBoiler() {
     return selectedValue;
   }
    // 보일러 검색 및 결과 가져오기 시뮬레이션
-   // 실제 데이터 또는 API 호출로 대체하세요
+   // 실제 데이터 또는 API 호출로 대체
    allResults = [
-      { id: "mainitem1", boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C"], name: "결과 1", image: "img/main/item/나비엔-pro-일반-가스보일러.png" },
-      { id: "mainitem2", boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: "0.5°C", name: "결과 2", image: "img/main/item/나비엔-콘뎅싱-디럭스형-18kd.png" },
-      { id: "mainitem3", boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: "66",InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"],name: "결과 3", image: "img/main/item/나비엔-콘덴싱-기름보일러1.png" },
-      { id: "mainitem4", name: "결과 4", image: "img/main/item/Untitled-1.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem5", name: "결과 5", image: "img/main/item/Untitled-2.png",boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66", "106","165"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"] },
-      { id: "mainitem6", name: "결과 6", image: "img/main/item/Untitled-3.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66", "106","165"],InstallationLocation: "대기차단식",waterTemperature: ["1°C","3단계"]},
-      { id: "mainitem7", name: "결과 7", image: "img/main/item/Untitled-4.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)"],InstallationLocation: "대기차단식",waterTemperature: ["1°C","3단계"]},
-      { id: "mainitem8", name: "결과 8", image: "img/main/item/Untitled-5.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","86M²(26평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem9", name: "결과 9", image: "img/main/item/Untitled-6.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem10", name: "결과 10", image: "img/main/item/Untitled-7.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66", "106","165","231"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem11", name: "결과 11", image: "img/main/item/Untitled-8.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66", "106","165","231"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem12", name: "결과 12", image: "img/main/item/Untitled-9.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem13", name: "결과 13", image: "img/main/item/Untitled-10.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem14", name: "결과 14", image: "img/main/item/Untitled-11.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem15", name: "결과 15", image: "img/main/item/Untitled-12.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem16", name: "결과 16", image: "img/main/item/Untitled-13.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C","3단계"]},
-      { id: "mainitem17", name: "결과 17", image: "img/main/item/Untitled-14.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature:  ["1°C","3단계"]},
-      { id: "mainitem18", name: "결과 18", image: "img/main/item/Untitled-15.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem19", name: "결과 19", image: "img/main/item/Untitled-16.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem20", name: "결과 20", image: "img/main/item/Untitled-17.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem21", name: "결과 21", image: "img/main/item/Untitled-18.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem22", name: "결과 22", image: "img/main/item/Untitled-19.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem23", name: "결과 23", image: "img/main/item/Untitled-20.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem24", name: "결과 24", image: "img/main/item/Untitled-21.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem25", name: "결과 25", image: "img/main/item/Untitled-22.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem26", name: "결과 26", image: "img/main/item/Untitled-23.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem27", name: "결과 27", image: "img/main/item/Untitled-24.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: "0.5°C"},
-      { id: "mainitem28", name: "결과 28", image: "img/main/item/Untitled-25.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem29", name: "결과 29", image: "img/main/item/Untitled-26.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem30", name: "결과 30", image: "img/main/item/Untitled-27.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem31", name: "결과 31", image: "img/main/item/Untitled-28.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem32", name: "결과 32", image: "img/main/item/Untitled-29.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem33", name: "결과 33", image: "img/main/item/Untitled-30.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem34", name: "결과 34", image: "img/main/item/Untitled-31.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: "0.5°C"},
-      { id: "mainitem35", name: "결과 35", image: "img/main/item/Untitled-32.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["0.5°C", "1°C","3단계"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem36", name: "결과 36", image: "img/main/item/Untitled-33.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem37", name: "결과 37", image: "img/main/item/Untitled-34.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem38", name: "결과 38", image: "img/main/item/Untitled-35.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem39", name: "결과 39", image: "img/main/item/Untitled-36.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem40", name: "결과 40", image: "img/main/item/Untitled-37.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: "66M²(8~20평)",InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem41", name: "결과 41", image: "img/main/item/Untitled-38.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)","198M²(60평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem42", name: "결과 42", image: "img/main/item/Untitled-39.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem43", name: "결과 43", image: "img/main/item/Untitled-40.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)","198M²(60평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem44", name: "결과 44", image: "img/main/item/Untitled-41.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem45", name: "결과 45", image: "img/main/item/Untitled-42.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)","198M²(60평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
-      { id: "mainitem46", name: "결과 46", image: "img/main/item/Untitled-43.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      
+      { id: "mainitem1", name: "결과 1", image: "img/main/item/Untitled-1.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem2", name: "결과 2", image: "img/main/item/Untitled-2.png",boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66", "106","165"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"] },
+      { id: "mainitem3", name: "결과 3", image: "img/main/item/Untitled-3.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66", "106","165"],InstallationLocation: "대기차단식",waterTemperature: ["1°C","3단계"]},
+      { id: "mainitem4", name: "결과 4", image: "img/main/item/Untitled-4.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)"],InstallationLocation: "대기차단식",waterTemperature: ["1°C","3단계"]},
+      { id: "mainitem5", name: "결과 5", image: "img/main/item/Untitled-5.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","86M²(26평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem6", name: "결과 6", image: "img/main/item/Untitled-6.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem7", name: "결과 7", image: "img/main/item/Untitled-7.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66", "106","165","231"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem8", name: "결과 8", image: "img/main/item/Untitled-8.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66", "106","165","231"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem9", name: "결과 9", image: "img/main/item/Untitled-9.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem10", name: "결과 10", image: "img/main/item/Untitled-10.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem11", name: "결과 11", image: "img/main/item/Untitled-11.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem12", name: "결과 12", image: "img/main/item/Untitled-12.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem13", name: "결과 13", image: "img/main/item/Untitled-13.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C","3단계"]},
+      { id: "mainitem14", name: "결과 14", image: "img/main/item/Untitled-14.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature:  ["1°C","3단계"]},
+      { id: "mainitem15", name: "결과 15", image: "img/main/item/Untitled-15.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem16", name: "결과 16", image: "img/main/item/Untitled-16.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem17", name: "결과 17", image: "img/main/item/Untitled-17.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem18", name: "결과 18", image: "img/main/item/Untitled-18.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem19", name: "결과 19", image: "img/main/item/Untitled-19.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem20", name: "결과 20", image: "img/main/item/Untitled-20.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem21", name: "결과 21", image: "img/main/item/Untitled-21.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem22", name: "결과 22", image: "img/main/item/Untitled-22.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem23", name: "결과 23", image: "img/main/item/Untitled-23.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem24", name: "결과 24", image: "img/main/item/Untitled-24.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: "0.5°C"},
+      { id: "mainitem25", name: "결과 25", image: "img/main/item/Untitled-25.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem26", name: "결과 26", image: "img/main/item/Untitled-26.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem27", name: "결과 27", image: "img/main/item/Untitled-27.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem28", name: "결과 28", image: "img/main/item/Untitled-28.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem29", name: "결과 29", image: "img/main/item/Untitled-29.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem30", name: "결과 30", image: "img/main/item/Untitled-30.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem31", name: "결과 31", image: "img/main/item/Untitled-31.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: "0.5°C"},
+      { id: "mainitem32", name: "결과 32", image: "img/main/item/Untitled-32.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["0.5°C", "1°C","3단계"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem33", name: "결과 33", image: "img/main/item/Untitled-33.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem34", name: "결과 34", image: "img/main/item/Untitled-34.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem35", name: "결과 35", image: "img/main/item/Untitled-35.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem36", name: "결과 36", image: "img/main/item/Untitled-36.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem37", name: "결과 37", image: "img/main/item/Untitled-37.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: "66M²(8~20평)",InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem38", name: "결과 38", image: "img/main/item/Untitled-38.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)","198M²(60평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem39", name: "결과 39", image: "img/main/item/Untitled-39.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem40", name: "결과 40", image: "img/main/item/Untitled-40.png" ,boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)","198M²(60평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem41", name: "결과 41", image: "img/main/item/Untitled-41.png" ,boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem42", name: "결과 42", image: "img/main/item/Untitled-42.png" ,boilerType: "일반", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)","231M²(70평)","132M²(40평)","86M²(26평)","132M²(40평)","198M²(60평)"],InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem43", name: "결과 43", image: "img/main/item/Untitled-43.png" ,boilerType: "콘덴싱", capacitySelection: "온수사용량기준(동절기)", waterUsage: ["66","106","165","231","86"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C","3단계"]},
+      { id: "mainitem44", boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: ["0.5°C", "1°C"], name: "결과 44", image: "img/main/item/나비엔-pro-일반-가스보일러.png" },
+      { id: "mainitem45", boilerType: "콘덴싱", capacitySelection: "난방면적기준", areaselection: ["66M²(8~20평)","106M²(32평)","165M²(50평)"],InstallationLocation: "대기개방식",waterTemperature: "0.5°C", name: "결과 45", image: "img/main/item/나비엔-콘뎅싱-디럭스형-18kd.png" },
+      { id: "mainitem46", boilerType: "일반", capacitySelection: "온수사용량기준(동절기)", waterUsage: "66",InstallationLocation: "대기차단식",waterTemperature: ["0.5°C", "1°C","3단계"],name: "결과 46", image: "img/main/item/나비엔-콘덴싱-기름보일러1.png" },
      // 필요에 따라 더 많은 결과 추가
     ];
   
@@ -583,7 +584,7 @@ function findBoiler() {
   // 필터링된 결과를 화면에 표시.
   console.log(filteredResults);
 
-  // 필터링된 결과를 sessionStorage에 저장합니다.
+  // 필터링된 결과를 sessionStorage에 저장.
   sessionStorage.setItem('filteredResults', JSON.stringify(filteredResults));
 
   // 사용자 선택에 따라 결과 필터링
@@ -879,21 +880,21 @@ function createEmptyGridItem() {
 
 
   function restoreSelections() {
-    // 모든 체크박스를 찾습니다.
+    // 모든 체크박스를 찾기.
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     
     // 각 체크박스에 대해
     checkboxes.forEach(checkbox => {
-      // 체크박스의 ID를 가져옵니다.
+      // 체크박스의 ID를 가져옴.
       const id = checkbox.getAttribute('data-result-id');
       
-      // 로컬 스토리지에서 해당 ID의 값을 가져옵니다.
+      // 로컬 스토리지에서 해당 ID의 값을 가져옴.
       const value = localStorage.getItem(id);
       
-      // 값이 있다면 체크박스를 체크 상태로 설정하고, 없다면 체크 해제 상태로 설정합니다.
+      // 값이 있다면 체크박스를 체크 상태로 설정하고, 없다면 체크 해제 상태로 설정.
       checkbox.checked = value !== null;
       
-      // 체크박스의 텍스트를 적절하게 설정합니다.
+      // 체크박스의 텍스트를 적절하게 설정.
       const checkboxText = checkbox.nextElementSibling.nextElementSibling; // .checkmark 다음에 있는 .checkbox-text 선택
       checkboxText.textContent = value !== null ? '선택됨' : '비교하기 선택';
     });
